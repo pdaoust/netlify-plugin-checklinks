@@ -1,13 +1,17 @@
 {
   "name": "netlify-plugin-checklinks",
-  "description": "Netlify build plugin check your links and asset references",
-  "repository": "git://github.com/munter/netlify-plugin-checklinks.git",
+  "description": "Netlify build plugin to check your links and asset references",
+  "repository": "git://github.com/pdaoust/netlify-plugin-checklinks.git",
   "bugs": {
-    "url": "https://github.com/munter/netlify-plugin-checklinks/issues"
+    "url": "https://github.com/pdaoust/netlify-plugin-checklinks/issues"
   },
   "version": "4.1.0",
   "license": "BSD-3-Clause",
   "maintainers": [
+    {
+      "name": "Paul d'Aoust",
+      "email": "amillionlobsters@gmail.com"
+    },
     {
       "name": "Peter Müller",
       "email": "munter@fumle.dk"
