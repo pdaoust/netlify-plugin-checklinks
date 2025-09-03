@@ -16,15 +16,35 @@ inputs:
     default: false
     # description: Report on all broken links to extrnal pages. Enabling this will make your tests more brittle, since you can't control external pages.
     # validation: boolean
+  - name: redirects
+    default: "check"
+    # description: Whether to do the inefficient redirects check. Valid values are: "check", "skip", or "todo" (which does the check but downgrades failing errors to todos).
+    # validation: string
   - name: followSourceMaps
     default: false
     # description: Enable to check references to source maps, source map sources etc. Many build tools don't emit working references, so this is disabled by default
     # validation: boolean
   - name: skipPatterns
     default: []
-    # description: You can mark some check as skipped, which will block checklinks from ever attempting to execute them. skipPatterns is an array of strings you can match against failing reports
+    # description: You can mark some check as skipped, which will block checklinks from ever attempting to execute them. skipPatterns is an array of strings you can match against failing reports; if you start and end them with ` delimiters (with optional trailing flags) they'll be recognised as regular expressions -- for example "`foo.+#bar`i" will do the regular checks on URLs containing `foo`, but will skip the fragment checks if the fragment starts with `bar`, and the `i` flag will make the check case-insensitive.
+    # validation: array of strings, unique items
+  - name: skipFragmentPatterns
+    default: []
+    # description: You can check some URLs while skipping the fragment checks using the specified patterns. See `skipPatterns` to find out how to specify them as regular expressions.
     # validation: array of strings, unique items
   - name: todoPatterns
     default: []
-    # description: You can mark some check as todo, which will execute the check, but allow failures. todoPatterns is an array of strings you can match against failing reports
+    # description: You can mark some checks as todo, which will execute the check, but allow failures. todoPatterns is an array of strings you can match against failing reports. See `skipPatterns` to find out how to specify them as regular expressions.
     # validation: array of strings, unique items
+  - name: todoServerErrorPatterns
+    default: []
+    # description: If a request errors (either with a 5xx error, a timeout, DNS error, or other unspecified error), you can mark known flaky servers by specifying URLs with these patterns. If the request doesn't yield an error, the usual patterns and rules will apply.
+    # validation: array of strings, unique items
+  - name: timeout
+    default: 30000
+    # description: timeout in milliseconds for HTTP requests
+    # validation: number
+  - name: concurrency
+    default: 25
+    # description: How many external requests to make at a time
+    # validation: number
