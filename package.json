@@ -5,7 +5,7 @@
   "bugs": {
     "url": "https://github.com/pdaoust/netlify-plugin-checklinks/issues"
   },
-  "version": "5.0.0",
+  "version": "5.0.1",
   "license": "BSD-3-Clause",
   "maintainers": [
     {
@@ -32,7 +32,7 @@
   "dependencies": {
     "@munter/tap-render": "^0.2.0",
     "globby": "^11.0.0",
-    "hyperlink": "https://github.com/pdaoust/hyperlink.git#6.0.0",
+    "hyperlink": "github:pdaoust/hyperlink#6.0.1",
     "regexp.escape": "^2.0.1",
     "tap-spot": "^1.1.2"
   },
